@@ -1,0 +1,23 @@
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Actualités</h1>
+      
+    </div>
+  </section>
+  <section id="doctors" class="doctors" style="margin-top: 130px;">
+    <div class="container">
+
+  
+      <div class="row">
+
+        <div class="col-lg-6" *ngFor='let ac of listeActualites'>
+         
+          <app-actualite [a]='ac'></app-actualite>
+        </div>
+
+        
+
+      </div>
+
+    </div>
+  </section>

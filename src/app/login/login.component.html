@@ -1,0 +1,31 @@
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Medilab </h1>
+      <p>Authentification Patient</p>  
+      
+    </div>
+  </section>
+<section id="appointment" class="appointment section-bg" style="margin-top: 150px;">
+    <div class="container">
+
+   
+
+      <form #loginForm="ngForm" (ngSubmit)='loginUser()' class="php-email-form">
+       
+      
+          <div class="col-md-12 form-group">
+            <input type="email" class="form-control" [(ngModel)]='login.email' [ngModelOptions]="{standalone: true}"  name="email" id="email" placeholder="Votre Email" data-rule="email" data-msg="Please enter a valid email">
+            <div class="validate"></div>
+          </div>
+          
+          <div class="col-md-12 form-group">
+            <input type="password" name="name" [(ngModel)]='login.password' [ngModelOptions]="{standalone: true}" class="form-control" id="name" placeholder="Votre Mot de passe" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <div class="validate"></div>
+          </div>
+         
+      
+        <div class="text-center"> <input type="submit" class="btn btn-primary py-3 px-5" style="border-radius: 15px;" value="Connexion"></div>
+      </form>
+
+    </div>
+  </section>

@@ -1,0 +1,89 @@
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Medilab </h1>
+      <p>Premier site de consultation médicale en ligne</p>  
+      
+    </div>
+  </section>
+<section id="appointment" class="appointment section-bg" style="margin-top: 150px;">
+    <div class="container">
+
+   
+
+      <form  [formGroup]='signUpForm'>
+       
+          <div class="col-md-12 form-group">
+            <input type="text" name="name" class="form-control"formControlName='lastName'  placeholder="Votre Nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <div *ngIf="signUpForm.controls['lastName'].invalid &&
+            (signUpForm.controls['lastName'].touched || signUpForm.controls['lastName'].dirty)"
+                style="color: #173b6c;">
+                <div *ngIf="signUpForm.controls['lastName'].errors">
+                    Le nom doit comporter au maximum 12 caractères et c'est un champ obligatoire 
+                </div>
+            </div>
+          </div>
+          <div class="col-md-12 form-group">
+            <input type="text" name="name" class="form-control"formControlName='firstName'  placeholder="Votre Prenom" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <div class="validate"></div>
+          </div>
+          <div *ngIf="signUpForm.controls['firstName'].invalid &&
+          (signUpForm.controls['firstName'].touched || signUpForm.controls['firstName'].dirty)"
+              style="color: #173b6c;">
+              <div *ngIf="signUpForm.controls['firstName'].errors">
+                  Le prénom doit comporter au moins 3 caractères et c'est un champ obligatoire
+               </div>
+             
+          </div>
+          <div class="col-md-12 form-group">
+            <input type="email" class="form-control" name="email" formControlName='email' placeholder="Votre Email" data-rule="email" data-msg="Please enter a valid email">
+            <div class="validate"></div>
+          </div>
+          <div *ngIf="signUpForm.controls['email'].invalid &&
+          (signUpForm.controls['email'].touched || signUpForm.controls['email'].dirty)" style="color: #173b6c;">
+              <div *ngIf="signUpForm.controls['email'].errors">
+                  veuillez saisir une adresse email valide
+              </div>
+             
+          </div>
+          <div class="col-md-12 form-group">
+            <input type="password" name="name" class="form-control"  formControlName='password' id="name" placeholder="Votre Mot de passe" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <div class="validate"></div>
+          </div>
+          <div *ngIf="signUpForm.controls['password'].invalid &&
+                    (signUpForm.controls['password'].touched || signUpForm.controls['password'].dirty)"
+                        style="color: #173b6c;">
+                        <div *ngIf="signUpForm.controls['password'].errors">
+                            Le mot de passe doit comporter au moins 8 caractères
+
+                        </div>
+                      
+                    </div>
+          <div class="col-md-12 form-group">
+            <input type="password" name="name" class="form-control" formControlName='cPassword'  id="name" placeholder="Confirmer votre mot de passe" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <div class="validate"></div>
+          </div>
+          <div *ngIf="signUpForm.controls['cPassword'].invalid && 
+          (signUpForm.controls['cPassword'].touched || 
+          signUpForm.controls['cPassword'].dirty)">
+          <div *ngIf="signUpForm.controls['cPassword'].errors" style="color:  #173b6c;"> Must Match
+          </div>
+          </div>
+          <div class="col-md-12 form-group">
+            <input type="number" class="form-control" name="email" formControlName='tel' id="email" placeholder="Votre Telephone" data-rule="email" data-msg="Please enter a valid email">
+            <div class="validate"></div>
+          </div>
+      
+     
+          <button type="button" (click)='filePicker.click()' class="btn btnsuccess">
+            Sélectionner image</button>
+            <div class="form-group">
+            <input style="visibility: hidden; " type="file" class="form-control"
+            #filePicker (change)='onImageSelected($event)' />
+            </div>
+            <img [src]="imagePreview">
+      
+        <div class="text-center"><button type="submit" class="btn btn-primary" (click)='signUp(signUpForm.value)'>Créer un compte gratuit</button></div>
+      </form>
+
+    </div>
+  </section>
